@@ -5,11 +5,14 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 
 # Site to download data
-# https://www.lottomaxnumbers.com/numbers/2023
+# https://www.lottomaxnumbers.com/numbers/
 url = input('Website-')
+year = input('Year-')
+full_url = url + year
+
 pdf_title = input('File Title-')
 
-with urllib.request.urlopen(url) as file:
+with urllib.request.urlopen(full_url) as file:
     r_file = file.read()
 
     soup = BeautifulSoup(r_file, 'html.parser')
